@@ -1,5 +1,5 @@
 // Функция для проверки длины строки
-const isStringLenght = (string, maxLength) => string.length <= length;
+const isStringLenght = (string, maxLength) => string.length <= maxLength;
 isStringLenght('проверяемая строка', 10);
 
 // Функция для проверки, является ли строка палиндромом.
