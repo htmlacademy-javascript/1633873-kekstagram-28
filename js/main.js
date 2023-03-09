@@ -1,6 +1,6 @@
 // массив из 25 сгенерированных объектов.
 // каждый объект массива — описание фотографии, опубликованной пользователем.
-const descriptionsArray = [
+const DESCRIPTIONS_ARRAY = [
   'Дом',
   'Природа',
   'Цветы',
@@ -15,7 +15,7 @@ const descriptionsArray = [
 
 // массив объектов — список комментариев,
 //  оставленных другими пользователями к этой фотографии.
-const messages = [
+const MASSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   `Когда вы делаете фотографию, хорошо бы убирать палец из кадра.
@@ -28,7 +28,7 @@ const messages = [
    Как можно было поймать такой неудачный момент?!`
 ];
 
-const names = [
+const NAMES = [
   'Артур',
   'Ибрагим',
   'Валера',
@@ -64,8 +64,8 @@ const getComment = () => {
     const commentsUsers = {
       id: getRandomPositiveInteger(1, 300),
       avatar: `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
-      message: messages[getRandomPositiveInteger(1, messages.length - 1)],
-      name: names[getRandomPositiveInteger(1, names.length - 1)]
+      message: MASSAGES[getRandomPositiveInteger(1, MASSAGES.length - 1)],
+      name: NAMES[getRandomPositiveInteger(1, NAMES.length - 1)]
     };
     result.push(commentsUsers);
   }
@@ -73,13 +73,14 @@ const getComment = () => {
 };
 
 // функция для создания массива с фотографиями
+const NUMBER_OF_PHOTOS = 25;
 const getArrayObject = () => {
   const result = [];
-  for (let i = 1; i <= 25; i++) {
+  for (let i = 1; i <= NUMBER_OF_PHOTOS; i++) {
     const photoUser = {
       id: i,
       url: `photos/${i}.jpg`,
-      description: getRandomDescription(descriptionsArray),
+      description: getRandomDescription(DESCRIPTIONS_ARRAY),
       likes: getRandomPositiveInteger(15, 200),
       comments: getComment()
     };
