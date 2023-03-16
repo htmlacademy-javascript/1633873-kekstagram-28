@@ -1,22 +1,23 @@
 import {getArrayObject} from './data.js';
 
 // контейнер для изображений
-const ContainerForImages = document.querySelector('.pictures');
+const containerForImages = document.querySelector('.pictures');
 
 // шаблон изображения случайного пользователя
 const imageTemplate = document.querySelector('#picture')
-.content
-.querySelector('.picture');
+  .content
+  .querySelector('.picture');
 
 // клонируем шаблон
 // const copyImageTemplate = imageTemplate.cloneNode(true);
 
 // добавляем копию шаблона в контейнер
-// ContainerForImages.appendChild(copyImageTemplate);
+// containerForImages.appendChild(copyImageTemplate);
 
 const temporaryFragment = document.createDocumentFragment();
 
 const arrayWithPhotos = getArrayObject();
+console.log(arrayWithPhotos);
 arrayWithPhotos.forEach((photo) => {
   const copyImageTemplate = imageTemplate.cloneNode(true);
   copyImageTemplate.querySelector('.picture__img').src = photo.url;
@@ -25,4 +26,4 @@ arrayWithPhotos.forEach((photo) => {
   temporaryFragment.appendChild(copyImageTemplate);
 });
 
-ContainerForImages.appendChild(temporaryFragment);
+containerForImages.appendChild(temporaryFragment);
