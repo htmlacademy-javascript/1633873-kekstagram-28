@@ -17,7 +17,6 @@ const imageTemplate = document.querySelector('#picture')
 const temporaryFragment = document.createDocumentFragment();
 
 const arrayWithPhotos = getArrayObject();
-console.log(arrayWithPhotos);
 arrayWithPhotos.forEach((photo) => {
   const copyImageTemplate = imageTemplate.cloneNode(true);
   copyImageTemplate.querySelector('.picture__img').src = photo.url;
